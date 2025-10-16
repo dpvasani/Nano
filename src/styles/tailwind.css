@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --color-primary: #1e40af; /* blue-800 - Deep Technology Blue */
+    --color-primary-foreground: #ffffff; /* white */
+    --color-secondary: #0f172a; /* slate-900 - Sophisticated Charcoal */
+    --color-secondary-foreground: #f8fafc; /* slate-50 */
+    --color-accent: #dc2626; /* red-600 - Strategic Red */
+    --color-accent-foreground: #ffffff; /* white */
+    
+    /* Core UI Colors */
+    --color-background: #ffffff; /* white - Clean Slate */
+    --color-foreground: #0f172a; /* slate-900 - Authority Black */
+    --color-card: #ffffff; /* white */
+    --color-card-foreground: #0f172a; /* slate-900 */
+    --color-popover: #ffffff; /* white */
+    --color-popover-foreground: #0f172a; /* slate-900 */
+    --color-muted: #f8fafc; /* slate-50 - Clean Slate */
+    --color-muted-foreground: #64748b; /* slate-500 - Professional Gray */
+    
+    /* Surface and Structure */
+    --color-surface: #f7fafc; /* gray-50 - Subtle content separation */
+    --color-border: #e2e8f0; /* slate-200 */
+    --color-input: #ffffff; /* white */
+    --color-ring: #2563eb; /* blue-600 - Confident Blue */
+    
+    /* Status Colors */
+    --color-success: #059669; /* emerald-600 - Trust Builder */
+    --color-success-foreground: #ffffff; /* white */
+    --color-warning: #d69e2e; /* yellow-600 - Important attention */
+    --color-warning-foreground: #ffffff; /* white */
+    --color-error: #e53e3e; /* red-500 - Helpful problem identification */
+    --color-error-foreground: #ffffff; /* white */
+    --color-destructive: #dc2626; /* red-600 */
+    --color-destructive-foreground: #ffffff; /* white */
+    
+    /* Text Hierarchy */
+    --color-text-primary: #1a202c; /* gray-800 - Extended reading comfort */
+    --color-text-secondary: #4a5568; /* gray-600 - Information hierarchy */
+    
+    /* Brand Action Colors */
+    --color-cta: #2563eb; /* blue-600 - Confident Blue */
+    --color-cta-foreground: #ffffff; /* white */
+    
+    /* Spacing and Layout */
+    --radius: 0.5rem; /* 8px */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+
+  /* Typography Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg lg:text-xl;
+  }
+
+  p {
+    @apply text-base leading-7 text-text-primary;
+  }
+
+  .text-secondary {
+    @apply text-text-secondary;
+  }
+
+  /* Code and Technical Elements */
+  code, pre {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  }
+
+  /* Smooth Transitions */
+  * {
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Focus States */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
+  }
+
+  /* Selection */
+::selection  {
+    @apply text-primary;
+  }
+}
+
+@layer components {
+  /* Brand Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Brand Hover Effects */
+  .hover-lift {
+    @apply transition-transform duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply transform scale-105;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 ease-out;
+  }
+
+  .hover-glow:hover {
+    @apply shadow-lg;
+  }
+
+  /* Brand Spacing System */
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .container-padding {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  /* Brand Typography Classes */
+  .headline-primary {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight;
+  }
+
+  .headline-secondary {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground;
+  }
+
+  .body-large {
+    @apply text-lg md:text-xl leading-relaxed text-text-primary;
+  }
+
+  .body-secondary {
+    @apply text-base leading-7 text-text-secondary;
+  }
+
+  .cta-text {
+    @apply text-base font-semibold;
+  }
+
+  /* Brand Card Styles */
+  .brand-card {
+    @apply bg-card border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+
+  .brand-surface {
+    @apply bg-surface border border-border rounded-lg;
+  }
+}
+
+@layer utilities {
+  /* Brand Gradient Utilities */
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  }
+
+  .text-brand-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Brand Shadow Utilities */
+  .shadow-brand {
+    box-shadow: var(--shadow);
+  }
+
+  .shadow-brand-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Brand Border Utilities */
+  .border-brand {
+    @apply border border-border;
+  }
+
+  /* Animation Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Responsive Text Utilities */
+  .text-responsive-xl {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  .text-responsive-lg {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  .text-responsive-base {
+    @apply text-base md:text-lg lg:text-xl;
+  }
+}
