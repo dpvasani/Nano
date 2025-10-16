@@ -28,3 +28,4 @@ const Routes = () => {
 };
 
 export default Routes;
+            foreground: "var(--color-warning-foreground)", // black             
